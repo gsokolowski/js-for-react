@@ -1,19 +1,10 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-// import registerServiceWorker from './registerServiceWorker';
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
-
 /***
  *
  * JavaScript for React Developers
  * https://www.youtube.com/watch?v=NCwa_xi0Uuc
  *
  ***/
-
+import { Teacher } from "./teacher"; // ./teacher is module teacher.js
 /***
  *
  * ES6 Variables var let const
@@ -283,11 +274,10 @@ console.log("street", st);
 console.log("city", c);
 
 /***
-*
-* ES6 Spread operator used a lot in React JS
-
-*
-***/
+ *
+ * ES6 Spread operator used a lot in React JS
+ *
+ ***/
 console.log("ES6 Spread operator used a lot in React JS");
 
 // lets combine these 2 arrays
@@ -316,7 +306,7 @@ console.log(clone);
 //ES6 Spread operator - applyed on objects
 console.log("ES6 Spread operator - applyed on objects");
 const obFirst = { name: "Greg" };
-const obSecond = { name: "Instructor" };
+const obSecond = { job: "Instructor" };
 
 const combinedObject = { ...obFirst, ...obSecond, location: "Australia" };
 console.log(combinedObject);
@@ -325,3 +315,74 @@ console.log(combinedObject);
 console.log("If you want to clone and object do");
 const obCloned = { ...obFirst };
 console.log(obCloned);
+
+/***
+ *
+ * ES6 Classes
+ *
+ ***/
+console.log("ES6 - Classes");
+
+class Person2 {
+  constructor(name) {
+    this.name = name;
+  }
+  walk() {
+    console.log("walk method caled");
+  }
+}
+
+const personSix = new Person2("Gregory");
+personSix.walk();
+
+/***
+ *
+ * ES6 Classes Inheritance
+ *
+ ***/
+console.log("ES6 - Classes inheritance");
+
+class Teacher2 extends Person2 {
+  constructor(name, degree) {
+    super(name); //this is to call constructuro for class Person above becouse you extand Teacher
+    this.degree = degree; // this is part of Teacher class
+  }
+  teach() {
+    console.log("teach method called");
+  }
+}
+
+const personSeven = new Teacher2("Gregory", "Msc");
+personSeven.walk();
+personSeven.teach();
+
+// Whenever we create component in react we should have this component to
+// extand the BASE COMPONENT that is defined in reactjs
+console.log(
+  "Whenever we create component in react we should have this component to extand the BASE COMPONENT that is defined in reactjs"
+);
+
+/***
+ *
+ * ES6 Modules
+ *
+ ***/
+console.log("ES6 - Modules");
+// This import needs to be at the top of the file
+// import { Teacher } from "./teacher";
+
+const personEight = new Teacher("Gregory", "Msc");
+personEight.walk();
+personEight.teach();
+
+/***
+ *
+ * ES6 Named and Default modules
+ *
+ ***/
+console.log("ES6 - ES6 Named and Default modules");
+
+// import { Person } from "./person"; // Named import
+// import Person from "./person"; // Default import
+// import Person, { promote } from "./person"; // Default import amd named import of single function
+// import React, { Component } from "react"; // typical react imports
